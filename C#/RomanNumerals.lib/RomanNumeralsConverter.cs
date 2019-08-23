@@ -31,8 +31,11 @@ namespace RomanNumerals.lib
             {
                 int currentValue = GetNumber(chars[i]);
                 int? next = LookAhead(chars, i);
+                // If the next value is larger than current, we'll subtract current, assuming it is valid to do so
                 if (next.HasValue && next.Value > currentValue)
                 {
+                    // Based on the above link, looks like the rule is that the only valid subtractions are 5 - 1, 10 - 1, 50 - 10, 100 - 10, 500 - 100, and 1000 - 100
+                    // So the "rule" is that to subtract, the result of dividing larger and smaller must be either 5 or 10, otherwise it's not a valid subtraction combination.
                     var quotient = next.Value / currentValue;
                     if (quotient != 10 && quotient != 5)
                     {
@@ -42,6 +45,7 @@ namespace RomanNumerals.lib
                 }
                 else
                 {
+                    // .. otherwise just add the current value to the total
                     sum += currentValue;
                 }
             }

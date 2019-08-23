@@ -55,6 +55,8 @@ namespace RomanNumerals.test
             Assert.Equal(1984, Fixture.ConvertRomanNumeralsToArabic("mcmlxxxiv"));
             Assert.Equal(1973, Fixture.ConvertRomanNumeralsToArabic("mcmlxxiii"));
             Assert.Equal(1815, Fixture.ConvertRomanNumeralsToArabic("mdcccxv"));
+            // This is the largest number you can represent, without using bars over the characters
+            Assert.Equal(3999, Fixture.ConvertRomanNumeralsToArabic("mmmcmxcix"));
         }
 
         [Fact]
@@ -64,7 +66,7 @@ namespace RomanNumerals.test
         }
 
         [Fact]
-        public void CharactersShouldNotBeAllowedToRepeatMorThanThreeTimes()
+        public void CharactersShouldNotBeAllowedToRepeatMoreThanThreeTimes()
         {
             Assert.Throws<ArgumentException>(() => Fixture.ConvertRomanNumeralsToArabic("iiii"));
             Assert.Throws<ArgumentException>(() => Fixture.ConvertRomanNumeralsToArabic("xxxx"));
