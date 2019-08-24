@@ -1,0 +1,9 @@
+C:\code\RomanNumeralsKata\RomanNumeralsKata\bin\Debug\netstandard2.0\RomanNumeralsKata.deps.json
+C:\code\RomanNumeralsKata\RomanNumeralsKata\bin\Debug\netstandard2.0\RomanNumeralsKata.dll
+C:\code\RomanNumeralsKata\RomanNumeralsKata\bin\Debug\netstandard2.0\RomanNumeralsKata.pdb
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.csprojAssemblyReference.cache
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.csproj.CoreCompileInputs.cache
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.AssemblyInfoInputs.cache
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.AssemblyInfo.cs
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.dll
+C:\code\RomanNumeralsKata\RomanNumeralsKata\obj\Debug\netstandard2.0\RomanNumeralsKata.pdb
