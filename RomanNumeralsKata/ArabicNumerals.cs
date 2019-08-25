@@ -5,7 +5,7 @@ namespace RomanNumeralsKata
 {
     public class ArabicNumerals
     {
-        const int MaxRomanNumeral = 1;
+        const int MaxRomanNumeral = 2;
 
         Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
 
