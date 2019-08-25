@@ -14,5 +14,12 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.ToRoman(1);
             Assert.Equal("I", result);
         }
+
+        [Fact]
+        public void When_2_Is_Input_Should_Result_In_II()
+        {
+            var result = arabicNumerals.ToRoman(2);
+            Assert.Equal("II", result);
+        }
     }
 }
