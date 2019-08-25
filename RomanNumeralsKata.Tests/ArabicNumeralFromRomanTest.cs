@@ -20,5 +20,12 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.FromRoman("II");
             Assert.Equal(2, result);
         }
+
+        [Fact]
+        public void When_III_Is_Input_Should_Result_In_3()
+        {
+            var result = arabicNumerals.FromRoman("III");
+            Assert.Equal(3, result);
+        }
     }
 }

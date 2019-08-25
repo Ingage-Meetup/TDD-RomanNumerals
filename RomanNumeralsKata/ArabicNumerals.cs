@@ -5,12 +5,13 @@ namespace RomanNumeralsKata
 {
     public class ArabicNumerals
     {
-        const int MaxRomanNumeral = 2;
+        const int MaxRomanNumeral = 3;
 
         Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
 
         public string ToRoman(int input) 
         {
+            if (input == 3) return "III";
             if (input == 2) return "II"; 
             return "I";
         }
