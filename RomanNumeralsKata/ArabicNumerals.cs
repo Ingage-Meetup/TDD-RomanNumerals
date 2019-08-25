@@ -1,12 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RomanNumeralsKata
 {
     public class ArabicNumerals
     {
-        public string ConvertToRoman(int input) 
+        const int MaxRomanNumeral = 1;
+
+        Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
+
+        public string ToRoman(int input) 
         {
             return "I";
+        }
+
+        public int FromRoman(string input)
+        {
+            for(int index = 1; index <= MaxRomanNumeral; index++)
+            {
+                RomanLookup[ToRoman(index)] = index;
+            }
+
+            return RomanLookup[input];
         }
     }
 }
