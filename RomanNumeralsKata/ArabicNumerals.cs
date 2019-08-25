@@ -6,7 +6,7 @@ namespace RomanNumeralsKata
     {
         public string ConvertToRoman(int input) 
         {
-            return string.Empty;
+            return "I";
         }
     }
 }
