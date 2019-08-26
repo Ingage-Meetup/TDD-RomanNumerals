@@ -41,5 +41,26 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.FromRoman("V");
             Assert.Equal(5, result);
         }
+
+                [Fact]
+        public void When_VI_Is_Input_Should_Result_In_6()
+        {
+            var result = arabicNumerals.FromRoman("VI");
+            Assert.Equal(6, result);
+        }
+
+                [Fact]
+        public void When_VII_Is_Input_Should_Result_In_7()
+        {
+            var result = arabicNumerals.FromRoman("VII");
+            Assert.Equal(7, result);
+        }
+
+                [Fact]
+        public void When_VIII_Is_Input_Should_Result_In_8()
+        {
+            var result = arabicNumerals.FromRoman("VIII");
+            Assert.Equal(8, result);
+        }
     }
 }
