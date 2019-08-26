@@ -98,5 +98,20 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.FromRoman("XIII");
             Assert.Equal(13, result);
         }
+
+        [Fact]
+        public void When_XIV_Is_Input_Should_Result_In_14()
+        {
+            var result = arabicNumerals.FromRoman("XIV");
+            Assert.Equal(14, result);
+        }
+
+        
+        [Fact]
+        public void When_XIX_Is_Input_Should_Result_In_19()
+        {
+            var result = arabicNumerals.FromRoman("XIX");
+            Assert.Equal(19, result);
+        }
     }
 }

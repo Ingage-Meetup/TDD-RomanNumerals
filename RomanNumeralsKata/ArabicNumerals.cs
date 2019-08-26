@@ -6,7 +6,7 @@ namespace RomanNumeralsKata
 {
     public class ArabicNumerals
     {
-        const int MaxRomanNumeral = 13;
+        const int MaxRomanNumeral = 19;
 
         Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
 
@@ -19,14 +19,20 @@ namespace RomanNumeralsKata
                 result.Append("X");                
             }
 
-            if (input == 9) return "IX";
+            if (input >= 9) {
+                input -= 9;
+                result.Append("IX");
+            } 
 
             if (input >= 5) {
                 input -= 5;
                 result.Append("V");
             }
 
-            if (input == 4) return "IV";
+            if (input >= 4) {
+                input -= 4;
+                result.Append("IV");
+            }
 
             while (input >= 1) {
                 input -= 1;
