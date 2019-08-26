@@ -127,5 +127,33 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.ToRoman(40);
             Assert.Equal("XL", result);
         }
+
+        [Fact]
+        public void When_50_Is_Input_Should_Result_In_L()
+        {
+            var result = arabicNumerals.ToRoman(50);
+            Assert.Equal("L", result);
+        }
+
+        [Fact]
+        public void When_99_Is_Input_Should_Result_In_XCIX()
+        {
+            var result = arabicNumerals.ToRoman(99);
+            Assert.Equal("XCIX", result);
+        }
+
+        [Fact]
+        public void When_100_Is_Input_Should_Result_In_C()
+        {
+            var result = arabicNumerals.ToRoman(100);
+            Assert.Equal("C", result);
+        }
+
+        [Fact]
+        public void When_300_Is_Input_Should_Result_In_CCC()
+        {
+            var result = arabicNumerals.ToRoman(300);
+            Assert.Equal("CCC", result);
+        }
     }
 }
