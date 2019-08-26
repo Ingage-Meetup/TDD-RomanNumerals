@@ -155,5 +155,35 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.ToRoman(300);
             Assert.Equal("CCC", result);
         }
+
+        [Fact]
+        public void When_400_Is_Input_Should_Result_In_CD()
+        {
+            var result = arabicNumerals.ToRoman(400);
+            Assert.Equal("CD", result);
+        }
+
+        
+        [Fact]
+        public void When_500_Is_Input_Should_Result_In_D()
+        {
+            var result = arabicNumerals.ToRoman(500);
+            Assert.Equal("D", result);
+        }
+
+        [Fact]
+        public void When_900_Is_Input_Should_Result_In_CM()
+        {
+            var result = arabicNumerals.ToRoman(900);
+            Assert.Equal("CM", result);
+        }
+
+        
+        [Fact]
+        public void When_1000_Is_Input_Should_Result_In_M()
+        {
+            var result = arabicNumerals.ToRoman(1000);
+            Assert.Equal("M", result);
+        }
     }
 }

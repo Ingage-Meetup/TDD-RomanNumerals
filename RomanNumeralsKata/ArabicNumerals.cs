@@ -6,13 +6,33 @@ namespace RomanNumeralsKata
 {
     public class ArabicNumerals
     {
-        const int MaxRomanNumeral = 399;
+        const int MaxRomanNumeral = 3899;
 
         Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
 
         public string ToRoman(int input) 
         {
             var result = new StringBuilder();
+
+            while (input >= 1000) {
+                input -= 1000;
+                result.Append("M");                
+            }
+
+            if (input >= 900) {
+                input -= 900;
+                result.Append("CM");
+            }
+
+            if (input >= 500) {
+                input -= 500;
+                result.Append("D");                
+            }
+
+            if (input >= 400) {
+                input -= 400;
+                result.Append("CD");
+            }
 
             while (input >= 100) {
                 input -= 100;
