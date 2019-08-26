@@ -11,8 +11,10 @@ namespace RomanNumeralsKata
         Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
 
         public string ToRoman(int input) 
-        {
+        {   
             var result = new StringBuilder();
+
+            // TODO: Add Out of Bounds error checking
 
             while (input >= 1000) {
                 input -= 1000;
@@ -89,6 +91,7 @@ namespace RomanNumeralsKata
                 RomanLookup[ToRoman(index)] = index;
             }
 
+            // TODO: When not found throw invalid input error message
             return RomanLookup[input];
         }
     }
