@@ -42,25 +42,61 @@ namespace RomanNumeralsKata.Tests
             Assert.Equal(5, result);
         }
 
-                [Fact]
+        [Fact]
         public void When_VI_Is_Input_Should_Result_In_6()
         {
             var result = arabicNumerals.FromRoman("VI");
             Assert.Equal(6, result);
         }
 
-                [Fact]
+        [Fact]
         public void When_VII_Is_Input_Should_Result_In_7()
         {
             var result = arabicNumerals.FromRoman("VII");
             Assert.Equal(7, result);
         }
 
-                [Fact]
+        [Fact]
         public void When_VIII_Is_Input_Should_Result_In_8()
         {
             var result = arabicNumerals.FromRoman("VIII");
             Assert.Equal(8, result);
+        }
+
+        [Fact]
+        public void When_IX_Is_Input_Should_Result_In_9()
+        {
+            var result = arabicNumerals.FromRoman("IX");
+            Assert.Equal(9, result);
+        }
+
+        [Fact]
+        public void When_X_Is_Input_Should_Result_In_10()
+        {
+            var result = arabicNumerals.FromRoman("X");
+            Assert.Equal(10, result);
+        }
+
+        
+        [Fact]
+        public void When_XI_Is_Input_Should_Result_In_11()
+        {
+            var result = arabicNumerals.FromRoman("XI");
+            Assert.Equal(11, result);
+        }
+        
+        [Fact]
+        public void When_XII_Is_Input_Should_Result_In_12()
+        {
+            var result = arabicNumerals.FromRoman("XII");
+            Assert.Equal(12, result);
+        }
+        
+        [Fact]
+        public void When_XIII_Is_Input_Should_Result_In_13()
+        {
+            var result = arabicNumerals.FromRoman("XIII");
+            Assert.Equal(13, result);
         }
     }
 }

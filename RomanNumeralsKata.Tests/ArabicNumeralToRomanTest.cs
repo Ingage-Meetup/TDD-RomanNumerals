@@ -58,10 +58,46 @@ namespace RomanNumeralsKata.Tests
         }
 
         [Fact]
-        public void When_7_Is_Input_Should_Result_In_VIII()
+        public void When_8_Is_Input_Should_Result_In_VIII()
         {
             var result = arabicNumerals.ToRoman(8);
             Assert.Equal("VIII", result);
+        }
+
+        [Fact]
+        public void When_9_Is_Input_Should_Result_In_IX()
+        {
+            var result = arabicNumerals.ToRoman(9);
+            Assert.Equal("IX", result);
+        }
+
+        [Fact]
+        public void When_10_Is_Input_Should_Result_In_X()
+        {
+            var result = arabicNumerals.ToRoman(10);
+            Assert.Equal("X", result);
+        }
+
+        
+        [Fact]
+        public void When_11_Is_Input_Should_Result_In_XI()
+        {
+            var result = arabicNumerals.ToRoman(11);
+            Assert.Equal("XI", result);
+        }
+
+        [Fact]
+        public void When_12_Is_Input_Should_Result_In_XII()
+        {
+            var result = arabicNumerals.ToRoman(12);
+            Assert.Equal("XII", result);
+        }
+
+        [Fact]
+        public void When_13_Is_Input_Should_Result_In_XIII()
+        {
+            var result = arabicNumerals.ToRoman(13);
+            Assert.Equal("XIII", result);
         }
     }
 }
