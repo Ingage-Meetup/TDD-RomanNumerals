@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RomanNumeralsKata
 {
@@ -11,11 +12,16 @@ namespace RomanNumeralsKata
 
         public string ToRoman(int input) 
         {
+            var result = new StringBuilder();
             if (input == 5) return "V";
             if (input == 4) return "IV";
-            if (input == 3) return "III";
-            if (input == 2) return "II"; 
-            return "I";
+
+            while (input >= 1) {
+                input -= 1;
+                result.Append("I");
+            }
+            
+            return result.ToString();
         }
 
         public int FromRoman(string input)
