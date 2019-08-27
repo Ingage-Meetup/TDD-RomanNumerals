@@ -8,16 +8,33 @@ namespace RomanNumeralsKata
     {
         const int MaxRomanNumeral = 3899;
 
-        Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
+        static Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
+        static Dictionary<int, string> ArabicLookup = new Dictionary<int, string>();
 
-        public string ToRoman(int input) 
-        {   
-            var result = new StringBuilder();
 
+        public int FromRoman(string input)
+        {
+            if (RomanLookup.ContainsKey(input) == false) 
+            {
+                throw new ArgumentException($"Value {input} is not a valid roman numeral");
+            }
+
+            return RomanLookup[input];
+        }
+        
+        public string ToRoman(int input)
+        {
             if (input < 1 || input > MaxRomanNumeral)
             {
                 throw new ArgumentOutOfRangeException($"Value must be between 1 and {MaxRomanNumeral}");
             }
+
+            return ArabicLookup[input];
+        }
+        
+        private static string GenerateRoman(int input)
+        {   
+            var result = new StringBuilder();
 
             while (input >= 1000) {
                 input -= 1000;
@@ -87,19 +104,14 @@ namespace RomanNumeralsKata
             return result.ToString();
         }
 
-        public int FromRoman(string input)
+        static ArabicNumerals()
         {
-            for(int index = 1; index <= MaxRomanNumeral; index++)
+            for(int arabic = 1; arabic <= MaxRomanNumeral; arabic++)
             {
-                RomanLookup[ToRoman(index)] = index;
+                var roman = GenerateRoman(arabic);
+                RomanLookup[roman] = arabic;
+                ArabicLookup[arabic] = roman;
             }
-
-            if (RomanLookup.ContainsKey(input) == false) 
-            {
-                throw new ArgumentException($"Value {input} is not a valid roman numeral");
-            }
-
-            return RomanLookup[input];
         }
     }
 }
