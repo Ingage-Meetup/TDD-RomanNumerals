@@ -21,7 +21,7 @@ namespace RomanNumeralsKata
 
             return RomanLookup[input];
         }
-        
+
         public string ToRoman(int input)
         {
             if (input < 1 || input > MaxRomanNumeral)
@@ -46,7 +46,7 @@ namespace RomanNumeralsKata
                 result.Append("CM");
             }
 
-            if (input >= 500) {
+            while (input >= 500) {
                 input -= 500;
                 result.Append("D");                
             }
@@ -66,7 +66,7 @@ namespace RomanNumeralsKata
                 result.Append("XC");
             }
             
-            if (input >= 50) {
+            while (input >= 50) {
                 input -= 50;
                 result.Append("L");
             } 
@@ -86,7 +86,7 @@ namespace RomanNumeralsKata
                 result.Append("IX");
             } 
 
-            if (input >= 5) {
+            while (input >= 5) {
                 input -= 5;
                 result.Append("V");
             }
