@@ -183,5 +183,18 @@ namespace RomanNumeralsKata.Tests
             var result = arabicNumerals.FromRoman("M");
             Assert.Equal(1000, result);
         }
+
+        [Fact]
+        public void When_AAA_Is_Input_Should_Result_In_Exception()
+        {
+            Assert.Throws<ArgumentException>(() => arabicNumerals.FromRoman("AAA"));
+        }
+
+        [Fact]
+        public void When_IIII_Is_Input_Should_Result_In_Exception()
+        {
+            Assert.Throws<ArgumentException>(() => arabicNumerals.FromRoman("IIII"));
+        }
+
     }
 }

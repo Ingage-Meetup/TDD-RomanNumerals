@@ -14,7 +14,10 @@ namespace RomanNumeralsKata
         {   
             var result = new StringBuilder();
 
-            // TODO: Add Out of Bounds error checking
+            if (input < 1 || input > MaxRomanNumeral)
+            {
+                throw new ArgumentOutOfRangeException($"Value must be between 1 and {MaxRomanNumeral}");
+            }
 
             while (input >= 1000) {
                 input -= 1000;
@@ -91,7 +94,11 @@ namespace RomanNumeralsKata
                 RomanLookup[ToRoman(index)] = index;
             }
 
-            // TODO: When not found throw invalid input error message
+            if (RomanLookup.ContainsKey(input) == false) 
+            {
+                throw new ArgumentException($"Value {input} is not a valid roman numeral");
+            }
+
             return RomanLookup[input];
         }
     }
