@@ -11,10 +11,10 @@ namespace RomanNumeralsKata
         static Dictionary<string, int> RomanLookup = new Dictionary<string, int>();
         static Dictionary<int, string> ArabicLookup = new Dictionary<int, string>();
 
-
         public int FromRoman(string input)
         {
-            if (RomanLookup.ContainsKey(input) == false) 
+            input = input.ToUpper();
+            if (RomanLookup.ContainsKey(input) == false)
             {
                 throw new ArgumentException($"Value {input} is not a valid roman numeral");
             }
@@ -31,84 +31,77 @@ namespace RomanNumeralsKata
 
             return ArabicLookup[input];
         }
-        
-        private static string GenerateRoman(int input)
-        {   
+
+        private static RomanNumeralMapper GetSubtrator(List<RomanNumeralMapper> mappers, RomanNumeralMapper currentMapper)
+        {
+            if (currentMapper.SubtractorRoman == '\0')
+            {
+                return null;
+            }
+
+            foreach (var mapper in mappers)
+            {
+                if (mapper.Roman == currentMapper.SubtractorRoman)
+                {
+                    return mapper;
+                }
+            }
+
+            return null;
+        }
+
+        private static string GenerateRoman(List<RomanNumeralMapper> mappers, int arabic)
+        {
             var result = new StringBuilder();
 
-            while (input >= 1000) {
-                input -= 1000;
-                result.Append("M");                
+            foreach (var mapper in mappers)
+            {
+                if (arabic == 0) 
+                {
+                    // Exit out early since we already have exact value 
+                    break;
+                }
+
+                // Handle repeatable single character
+                while (arabic >= mapper.Arabic)
+                {
+                    arabic -= mapper.Arabic;
+                    result.Append(mapper.Roman);
+                }
+
+                // Handle multi-character subtraction
+                var subtractor = GetSubtrator(mappers, mapper);
+                if (subtractor != null)
+                {
+                    var value = mapper.Arabic - subtractor.Arabic;
+                    if (arabic >= value)
+                    {
+                        arabic -= value;
+                        result.Append(subtractor.Roman);
+                        result.Append(mapper.Roman);
+                    }
+                }
             }
 
-            if (input >= 900) {
-                input -= 900;
-                result.Append("CM");
-            }
-
-            while (input >= 500) {
-                input -= 500;
-                result.Append("D");                
-            }
-
-            if (input >= 400) {
-                input -= 400;
-                result.Append("CD");
-            }
-
-            while (input >= 100) {
-                input -= 100;
-                result.Append("C");                
-            }
-
-            if (input >= 90) {
-                input -= 90;
-                result.Append("XC");
-            }
-            
-            while (input >= 50) {
-                input -= 50;
-                result.Append("L");
-            } 
-
-            if (input >= 40) {
-                input -= 40;
-                result.Append("XL");
-            } 
-
-            while (input >= 10) {
-                input -= 10;
-                result.Append("X");                
-            }
-
-            if (input >= 9) {
-                input -= 9;
-                result.Append("IX");
-            } 
-
-            while (input >= 5) {
-                input -= 5;
-                result.Append("V");
-            }
-
-            if (input >= 4) {
-                input -= 4;
-                result.Append("IV");
-            }
-
-            while (input >= 1) {
-                input -= 1;
-                result.Append("I");
-            }
-            
             return result.ToString();
         }
 
         static ArabicNumerals()
         {
-            for(int arabic = 1; arabic <= MaxRomanNumeral; arabic++)
+            var romanValues = new List<RomanNumeralMapper>
             {
-                var roman = GenerateRoman(arabic);
+                new RomanNumeralMapper{Roman = 'M', Arabic = 1000, SubtractorRoman = 'C'},
+                new RomanNumeralMapper{Roman = 'D', Arabic = 500, SubtractorRoman = 'C'},
+                new RomanNumeralMapper{Roman = 'C', Arabic = 100, SubtractorRoman = 'X'},
+                new RomanNumeralMapper{Roman = 'L', Arabic = 50, SubtractorRoman = 'X'},
+                new RomanNumeralMapper{Roman = 'X', Arabic = 10, SubtractorRoman = 'I'},
+                new RomanNumeralMapper{Roman = 'V', Arabic = 5, SubtractorRoman = 'I'},
+                new RomanNumeralMapper{Roman = 'I', Arabic = 1}
+            };
+
+            for (int arabic = 1; arabic <= MaxRomanNumeral; arabic++)
+            {
+                var roman = GenerateRoman(romanValues, arabic);
                 RomanLookup[roman] = arabic;
                 ArabicLookup[arabic] = roman;
             }
